@@ -77,5 +77,5 @@ The whole process is divided into five steps:
 > 翻译：New Bing
 
 > Author: xiaosuqi1778, https://github.com/xiaosuqi1778  
-> Email: xiaosuqi1778@163.com, xusuqi9966@gmail.com
+> Email: xiaosuqi1778@163.com, xusuqi9966@gmail.com 
 > Translation: New Bing
