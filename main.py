@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import networkx as nx
-from matplotlib import pyplot as plt
 import os
 import time
 import random
@@ -205,15 +204,25 @@ def main(ipa, paths):
     for i in range(len(img_list) - 1):
         final_image = IS.blending(final_image, img_list[i + 1])
     cv2.imwrite(f'./result/ImageStitching_{IS.timestamp}.jpg', final_image)
-
+    print("图像拼接成功！\n请在result文件夹内查看。\n\n")
 
 if __name__ == '__main__':
     try:
-        ### 这里修改路径 ###
-        ### 当前路径下有 images_indoor 和 images_outdoor ###
-        img_path_head = './images_outdoor/'
-        img_files = os.listdir(img_path_head)
-        img_files.sort()
-        main(img_path_head, img_files)
+        while(True):
+            print("1 - ./images_outdoor/")
+            print("2 - ./images_indoor/")
+            print("3 - exit")
+            img_path_head=input("请选择或输入图片所在文件夹地址：\n")
+            if(img_path_head=="1"):
+                img_path_head='./images_outdoor/'
+            elif(img_path_head=="2"):
+                img_path_head='./images_indoor/'
+            elif(img_path_head=="3"):
+                break
+            else:
+                continue
+            img_files = os.listdir(img_path_head)
+            img_files.sort()
+            main(img_path_head, img_files)
     except IndexError:
         print("Please input two source images and check your pathed are correct")
